@@ -1,25 +1,33 @@
+/* LIGHT MODE */
 :root {
-    --bg: #ffffff;
-    --text: #1f2933;
-    --primary: #38bdf8;
-    --secondary: #f8fafc;
-    --card: #ffffff;
-    --nav: #0f172a;
+    --bg: #7da0ca;
+    --text: #020617;
+    --primary: #cae8ff;
+    --secondary: #7da0ca;
+    --card: #6797d2;
+    --nav: #cae8ff;
+
+    --hero-bg: linear-gradient(to right, #cae8ff, #7da0ca);
+    --hero-text: #020617;
 }
 
+/* DARK MODE */
 body.dark {
     --bg: #020617;
     --text: #e5e7eb;
     --secondary: #020617;
     --card: #0f172a;
     --nav: #020617;
+
+    --hero-bg: linear-gradient(to right, #0f172a, #020617);
+    --hero-text: #ffffff;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 html {
@@ -32,7 +40,7 @@ body {
     transition: background 0.4s ease, color 0.4s ease;
 }
 
-/* NAVBAR */
+/* ================= NAVBAR ================= */
 .navbar {
     position: fixed;
     top: 0;
@@ -55,19 +63,18 @@ body {
     width: 42px;
     height: 42px;
     border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid var(--primary);
+    border: 2px solid #38bdf8;
 }
 
 .logo {
-    color: var(--primary);
     font-weight: 700;
     font-size: 20px;
+    color: #38bdf8;
 }
 
 .nav-links {
-    display: flex;
     list-style: none;
+    display: flex;
     gap: 20px;
 }
 
@@ -81,40 +88,60 @@ body {
     gap: 10px;
 }
 
-.toggle, .hamburger {
+.toggle,
+.hamburger {
     background: transparent;
-    border: 2px solid var(--primary);
-    color: var(--primary);
+    border: 2px solid #38bdf8;
+    color: #38bdf8;
     padding: 6px 12px;
     border-radius: 20px;
     cursor: pointer;
 }
 
-/* HERO */
+/* ================= HERO ================= */
 .hero {
     min-height: 100vh;
-    padding-top: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--hero-bg);
+    color: var(--hero-text);
     text-align: center;
-    background: linear-gradient(to right, #0f172a, #020617);
-    color: white;
 }
 
-.hero h1 span {
-    color: var(--primary);
+.hero-content {
+    max-width: 720px;
+    padding: 0 20px;
 }
 
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 12px;
+}
+
+.hero h2 {
+    font-weight: 500;
+    margin-bottom: 22px;
+    opacity: 0.9;
+}
+
+.hero p {
+    line-height: 1.7;
+}
+
+/* ================= BUTTON ================= */
 .btn {
     display: inline-block;
-    margin-top: 25px;
+    margin-top: 30px;
     padding: 12px 30px;
-    background: var(--primary);
+    background: #38bdf8;
     color: black;
     border-radius: 30px;
-    text-decoration: none;
     font-weight: 600;
+    text-decoration: none;
 }
 
-/* SECTIONS */
+/* ================= SECTIONS ================= */
 .section {
     padding: 80px 12%;
     text-align: center;
@@ -124,7 +151,7 @@ body {
     background: var(--secondary);
 }
 
-/* SKILLS */
+/* ================= SKILLS ================= */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -135,9 +162,14 @@ body {
     background: var(--card);
     padding: 15px;
     border-radius: 10px;
+    transition: transform 0.3s ease;
 }
 
-/* PROJECTS */
+.skill:hover {
+    transform: translateY(-6px);
+}
+
+/* ================= PROJECTS ================= */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -148,22 +180,14 @@ body {
     background: var(--card);
     padding: 25px;
     border-radius: 12px;
+    transition: transform 0.3s ease;
 }
 
-.project-links {
-    margin-top: 15px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
+.project-card:hover {
+    transform: translateY(-8px);
 }
 
-.project-links a {
-    text-decoration: none;
-    color: var(--primary);
-    font-weight: 600;
-}
-
-/* EDUCATION */
+/* ================= EDUCATION ================= */
 .education-card {
     background: var(--card);
     padding: 30px;
@@ -172,14 +196,15 @@ body {
     max-width: 600px;
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 footer {
     padding: 20px;
     background: #020617;
     color: #9ca3af;
+    text-align: center;
 }
 
-/* ANIMATIONS */
+/* ================= ANIMATIONS ================= */
 .section,
 .project-card,
 .skill {
@@ -193,7 +218,7 @@ footer {
     transform: translateY(0);
 }
 
-/* MOBILE */
+/* ================= MOBILE ================= */
 @media (max-width: 768px) {
     .nav-links {
         position: absolute;
@@ -207,5 +232,9 @@ footer {
 
     .nav-links.show-menu {
         display: flex;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
     }
 }
