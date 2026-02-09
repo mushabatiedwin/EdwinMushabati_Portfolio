@@ -1,4 +1,4 @@
-// DARK / LIGHT MODE (Dark default)
+// THEME TOGGLE
 const toggle = document.getElementById("themeToggle");
 
 toggle.addEventListener("click", () => {
@@ -14,7 +14,7 @@ hamburger.addEventListener("click", () => {
     navLinks.classList.toggle("show-menu");
 });
 
-// SCROLL ANIMATIONS
+// SCROLL ANIMATION
 const observer = new IntersectionObserver(
     entries => {
         entries.forEach(entry => {
